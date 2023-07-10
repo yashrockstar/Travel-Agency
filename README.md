@@ -72,28 +72,42 @@ In the Lower Level Diagram, we have identified the main classes and their relati
 
                                            
 # High-Level Design (Block Diagram)
-         +-----------------+
-         |   User Interface   |
-         +-----------------+
-         | - Input/Output handling |
-         | - Interaction with the user |
-         +-----------------+
-                   |
-                   |
-                   v
-         +-----------------+
-         |   Application   |
-         +-----------------+
-         | - Business logic |
-         | - Data management |
-         | - Integration with external systems |
-         +-----------------+
-                   |
-                   |
-                   v
-         +-----------------+
-         |    Database     |
-         +-----------------+
-         | - Persistence of data |
-         | - Data retrieval and storage |
-         +-----------------+
+
+In this diagram, each component represents a major functionality or module of the travel agency system. The arrows indicate the interactions between the components. Here's a brief description of each component:
+
+1. User Interface            : Handles user interactions and provides features such as search functionality, package selection, passenger registration, and activity sign-ups.
+2. Travel Package Management : Manages travel packages, including creating and updating packages, adding destinations and activities, managing capacity, and generating itineraries.
+3. Passenger Management      : Handles passenger-related tasks such as registration, tracking passenger details, managing balances, and handling activity sign-ups.
+4. Activity Management       : Deals with managing activities available at various destinations, including adding and updating activities, tracking capacity, and coordinating with passenger registrations.
+5. Database                  : Stores and manages data related to travel packages, destinations, activities, passengers, and activity registrations, providing persistent storage and retrieval.
+6. External APIs/Services    : Represents external services or APIs that the travel agency system interacts with, such as payment gateways, booking systems, or third-party APIs.
+7. Reporting and Analytics   : Focuses on generating reports, analyzing data, and providing insights related to travel packages, passenger activities, revenue, and other relevant metrics.
+
+          +-------------------+
+          |    User Interface |
+          +-------------------+
+                     |
+           +-------------------------------+
+           |   Travel Package Management   |
+           +-------------------------------+
+                     |
+           +----------------------------+
+           |    Passenger Management    |
+           +----------------------------+
+                     |
+           +-----------------------------+
+           |     Activity Management     |
+           +-----------------------------+
+                     |
+           +-------------------------+
+           |        Database         |
+           +-------------------------+
+                     |
+        +----------------------------+
+        |   External APIs/Services   |
+        +----------------------------+
+                     |
+         +-----------------------------+
+         |   Reporting and Analytics   |
+         +-----------------------------+
+
