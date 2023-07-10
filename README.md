@@ -14,7 +14,6 @@
         |                 | + printPassengerDetails(passengerNumber: int): void |
         |                 | + printAvailableActivities(): void                  |
         |                 +-----------------------------------------------------+
-	|                                            |
         |                     +-------------------------------------------------------+
         |                     |                                                       |
         |                     |                                                       |
