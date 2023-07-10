@@ -59,3 +59,30 @@
                   +--+   +--+
                   | - calculatePricePaid() |
                   +--+
+
+# High-Level Design (Block Diagram)
+         +-----------------+
+         |   User Interface   |
+         +-----------------+
+         | - Input/Output handling |
+         | - Interaction with the user |
+         +-----------------+
+                   |
+                   |
+                   v
+         +-----------------+
+         |   Application   |
+         +-----------------+
+         | - Business logic |
+         | - Data management |
+         | - Integration with external systems |
+         +-----------------+
+                   |
+                   |
+                   v
+         +-----------------+
+         |    Database     |
+         +-----------------+
+         | - Persistence of data |
+         | - Data retrieval and storage |
+         +-----------------+
