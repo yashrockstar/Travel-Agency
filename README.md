@@ -15,27 +15,27 @@
                               | + printAvailableActivities(): void |
                               +------------------+
 
-                                     / | \
-                                    /  |  \
-                                   /   |   \
-                                  /    |    \
-                            +-------+  |  +--------+
-                            |Destination|  |Activity|
-                            +-------+  |  +--------+
-                            | - name: String    | - name: String
+                                     / | -----------------------
+                                    /  |                       |
+                                   /   |                       |
+                                  /    |                       |
+                            +-------+  |                   +--------+
+                            |Destination|                  |Activity|
+                            +-------+  |                    +--------+
+                            | - name: String               | - name: String
                             | - activities: List<Activity> | - description: String
-                            +-------+  |  | - cost: double
-                              | |   |    | - capacity: int
-                              | |   |    +--------+
-                              | |   |          /|\
-                              | |   |         / | \
-                              | |   |        /  |  \
-                              | |   |       /   |   \
-                      +---------+  |  +-----+ +------+     
-                      |  Passenger  |  |  ActivityRegistration  |
-                      +---------+  |  +-----+ +------+
-                      | - name: String    | | - activity: Activity
-                      | - passengerNumber: int  | | - pricePaid: double
+                            +-------+  |                   | - cost: double
+                              | |   |                      | - capacity: int
+                              | |   |                              +--------+
+                              | |   |                                  /|\
+                              | |   |                                 / | \
+                              | |   |                                /  |  \
+                              | |   |                               /   |   \
+                      +---------+  |                              +-----+ +------+     
+                      |  Passenger  |                         |  ActivityRegistration  |
+                      +---------+  |                             +-----+ +------+
+                      | - name: String    |                      | - activity: Activity
+                      | - passengerNumber: int  |                | - pricePaid: double
                       | - balance: double | +------+
                       | - activities: List<ActivityRegistration> |
                       +---------+
