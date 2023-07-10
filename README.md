@@ -15,13 +15,13 @@
                               | + printAvailableActivities(): void |
                               +------------------+
 
-                                     / | -----------------------
+                                     / | ----------------------+
                                     /  |                       |
                                    /   |                       |
                                   /    |                       |
                             +-------+  |                   +--------+
                             |Destination|                  |Activity|
-                            +-------+  |                    +--------+
+                            +-------+  |                   +--------+
                             | - name: String               | - name: String
                             | - activities: List<Activity> | - description: String
                             +-------+  |                   | - cost: double
