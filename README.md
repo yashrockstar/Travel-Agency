@@ -52,3 +52,6 @@ In this diagram, each component represents a major functionality or module of th
          |   Reporting and Analytics   |
          +-----------------------------+
 
+![image](https://github.com/yashrockstar/Travel-Agency/assets/72990999/25b1fd4b-edcb-435b-b172-9dbfb2d8bd12)
+
+
