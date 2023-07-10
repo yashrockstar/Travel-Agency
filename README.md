@@ -9,9 +9,66 @@ In the Lower Level Diagram, we have identified the main classes and their relati
 5. **PassengerType**        : Represents the type of a passenger (e.g., Standard, Gold, Premium). Basically it is an interface which is implemented by 3 class PremiumPassengerType, StandardPassengerType & GoldPassengerType
 6. **ActivityRegistration** : Represents the registration for an activity by a passenger.
    
-                          ![image](https://github.com/yashrockstar/Travel-Agency/assets/72990999/673b950a-9e63-4c91-b5fc-a67784afbb5f)
-
-
+                          +------------------+
+                          |   TravelPackage  |
+                          +--------------------------------+
+                          | - name: String                 |
+                          | - passengerCapacity: int       |
+                          | - itinerary: List<Destination> |
+                          | - passengers: List<Passenger>  |
+         +----------------+-----------------------------------------------------+
+        |                 | + addDestination(destination: Destination): void    |
+        |                 | + addPassenger(passenger: Passenger): void          |
+        |                 | + printItinerary(): void                            |
+        |                 | + printPassengerList(): void                        |
+        |                 | + printPassengerDetails(passengerNumber: int): void |
+        |                 | + printAvailableActivities(): void                  |
+        |                 +-----------------------------------------------------+
+        |                     |
+        |                     |                                                       
+        |                     |                                                       
+        |                     v                                                       
+        |               +-----------+                                          +------------------------+
+        |               |Destination|                              +---------> |Activity                |
+        |               +------------------------------+           |           +------------------------+
+        |               | - name: String               |           |           | - name: String         |
+        |               | - activities: List<Activity> |-----------+           | - description: String  |
+        |               +------------------------------+                       | - cost: double         |					   
+        |                                                                      | - capacity: int        |                      
+        |                                                                      +------------------------+                      
+        |                                                                                /|\                                   
+        |                                                                               / | \                                  
+        |                                                                              /  |  \                                 
+        |                                                                             /   |   \                                
+        |          +-------------+                                             +------------------------+                      
+        |          |  Passenger  |                                      +----> |  ActivityRegistration  |                      
+        |          +-------------+ --------------------------+          |      +------------------------+ 
+        |         | - name: String                           |          |      | - activity: Activity   |                      
+        |         | - passengerNumber: int                   |          |      | - pricePaid: double    |                      
+        +-------->| - balance: double                        |----------+      +------------------------+                      
+                  | - activities: List<ActivityRegistration> |                                                                 
+                  +------------------------------------------+                                                                  
+							|																								   
+							|
+							v                 
+                 +---------------------------+
+                 |    PremiumPassengerType   |
+                 +----------+   +------------+
+                 | - calculatePricePaid()    |
+                 +---------------------------+
+									v		
+              +-------------------------+     
+              |   StandardPassengerType |     
+              +-----------+   +---------+ 
+              | - calculatePricePaid()  |     
+              +-------------------------+     
+                           v                   
+              +-------------------------+     
+              |   GoldPassengerType     |     
+              +------------+   +--------+ 
+              | - calculatePricePaid()  |
+              +-------------------------+
+![image](https://github.com/yashrockstar/Travel-Agency/assets/72990999/1cac5933-c136-4698-b52e-5d0d0da59c64)
 
                                            
 # High-Level Design (Block Diagram)
