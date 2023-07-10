@@ -24,34 +24,6 @@ In this diagram, each component represents a major functionality or module of th
 6. **External APIs/Services**    : Represents external services or APIs that the travel agency system interacts with, such as payment gateways, booking systems, or third-party APIs.
 7. **Reporting and Analytics**   : Focuses on generating reports, analyzing data, and providing insights related to travel packages, passenger activities, revenue, and other relevant metrics.
 
-          +-------------------+
-          |    User Interface |
-          +-------------------+
-                     |
-           +-------------------------------+
-           |   Travel Package Management   |
-           +-------------------------------+
-                     |
-           +----------------------------+
-           |    Passenger Management    |
-           +----------------------------+
-                     |
-           +-----------------------------+
-           |     Activity Management     |
-           +-----------------------------+
-                     |
-           +-------------------------+
-           |        Database         |
-           +-------------------------+
-                     |
-        +----------------------------+
-        |   External APIs/Services   |
-        +----------------------------+
-                     |
-         +-----------------------------+
-         |   Reporting and Analytics   |
-         +-----------------------------+
-
 ![image](https://github.com/yashrockstar/Travel-Agency/assets/72990999/25b1fd4b-edcb-435b-b172-9dbfb2d8bd12)
 
 
