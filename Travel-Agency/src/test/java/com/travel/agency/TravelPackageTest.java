@@ -8,7 +8,6 @@ import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.travel.agency.enums.TypeOfPassenger;
 import com.travel.agency.interfaces.impl.GoldPassengerType;
 import com.travel.agency.interfaces.impl.StandardPassengerType;
 import com.travel.agency.model.Activity;
@@ -17,10 +16,16 @@ import com.travel.agency.model.Destination;
 import com.travel.agency.model.Passenger;
 import com.travel.agency.model.TravelPackage;
 
+/**
+ * This class contains test cases for the TravelPackage class.
+ */
 @SpringBootTest
 public class TravelPackageTest {
 	private TravelPackage travelPackage = new TravelPackage("Package 1", 10);
 
+	/**
+	 * Test case for adding a destination to the travel package.
+	 */
 	@Test
 	public void testAddDestination() {
 		Destination destination = new Destination("Destination 1");
@@ -32,6 +37,9 @@ public class TravelPackageTest {
 		Assert.assertTrue(itinerary.contains(destination));
 	}
 
+	/**
+	 * Test case for adding a passenger to the travel package.
+	 */
 	@Test
 	public void testAddPassenger() {
 		Passenger passenger = new Passenger("John", 1, 500.0, new StandardPassengerType());
@@ -43,6 +51,9 @@ public class TravelPackageTest {
 		Assert.assertTrue(passengers.contains(passenger));
 	}
 
+	/**
+	 * Test case for printing the itinerary of the travel package.
+	 */
 	@Test
 	public void testPrintItinerary() {
 		// Set up destinations and activities
@@ -63,6 +74,9 @@ public class TravelPackageTest {
 		// individual method tests
 	}
 
+	/**
+	 * Test case for printing the passenger list of the travel package.
+	 */
 	@Test
 	public void testPrintPassengerList() {
 		// Set up passengers
@@ -78,6 +92,9 @@ public class TravelPackageTest {
 		// individual method tests
 	}
 
+	/**
+	 * Test case for printing the details of an individual passenger in the travel package.
+	 */
 	@Test
 	public void testPrintPassengerDetails() {
 		// Set up passengers and activities
@@ -112,6 +129,9 @@ public class TravelPackageTest {
 		Assert.assertTrue(consoleOutput.contains("Activities Signed Up:"));
 	}
 
+	/**
+	 * Test case for printing the details of all the activities that have available spaces.
+	 */
 	@Test
 	public void testPrintAvailableActivities() {
 		// Set up destinations and activities

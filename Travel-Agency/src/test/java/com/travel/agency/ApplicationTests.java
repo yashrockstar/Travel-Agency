@@ -6,6 +6,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public class ApplicationTests {
 
+	 /**
+     * Run all the tests for the travel package, destination, activity, passenger,
+     * and activity registration.
+     */
 	@Test
 	public void runAllTests() {
 
