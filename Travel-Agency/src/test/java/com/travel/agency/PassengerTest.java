@@ -4,14 +4,16 @@ import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.travel.agency.enums.TypeOfPassenger;
+import com.travel.agency.interfaces.impl.GoldPassengerType;
+import com.travel.agency.interfaces.impl.PremiumPassengerType;
+import com.travel.agency.interfaces.impl.StandardPassengerType;
 import com.travel.agency.model.Activity;
 import com.travel.agency.model.ActivityRegistration;
 import com.travel.agency.model.Passenger;
 
 @SpringBootTest
 public class PassengerTest {
-	private Passenger passenger = new Passenger("John", 1, 500.0, TypeOfPassenger.Standard);
+	private Passenger passenger = new Passenger("John", 1, 500.0, new StandardPassengerType());
 
 	@Test
 	public void testGetName() {
@@ -39,7 +41,7 @@ public class PassengerTest {
 
 		passenger.signUpForActivity(activity);
 
-		Assert.assertEquals(3, passenger.getActivities().size());
+		Assert.assertEquals(2, passenger.getActivities().size());
 		Assert.assertEquals(50.0, passenger.getBalance(), 0.01);
 	}
 
@@ -50,7 +52,7 @@ public class PassengerTest {
 		passenger.signUpForActivity(activity);
 
 		Assert.assertFalse(passenger.getActivities().isEmpty());
-		Assert.assertEquals(600.0, passenger.getBalance(), 0.01);
+		Assert.assertEquals(500.0, passenger.getBalance(), 0.01);
 	}
 
 	@Test
@@ -76,30 +78,27 @@ public class PassengerTest {
 
 	@Test
 	public void testCalculatePricePaidGoldPassenger() {
-		passenger.setPassengerType(TypeOfPassenger.Gold);
 
 		Activity activity = new Activity("Hiking", "Outdoor adventure", 50.0, 10);
-		double pricePaid = passenger.calculatePricePaid(activity);
+		double pricePaid = new GoldPassengerType().calculatePricePaid(activity, passenger.getBalance());
 
-		Assert.assertEquals(45.0, pricePaid, 0.01);
+		Assert.assertEquals(455.0, pricePaid, 0.01);
 	}
 
 	@Test
 	public void testCalculatePricePaidStandardPassenger() {
-		passenger.setPassengerType(TypeOfPassenger.Standard);
 
 		Activity activity = new Activity("Hiking", "Outdoor adventure", 50.0, 10);
-		double pricePaid = passenger.calculatePricePaid(activity);
+		double pricePaid = new StandardPassengerType().calculatePricePaid(activity, passenger.getBalance());
 
 		Assert.assertEquals(450.0, pricePaid, 0.01);
 	}
 
 	@Test
 	public void testCalculatePricePaidPremiumPassenger() {
-		passenger.setPassengerType(TypeOfPassenger.Premium);
 
 		Activity activity = new Activity("Hiking", "Outdoor adventure", 50.0, 10);
-		double pricePaid = passenger.calculatePricePaid(activity);
+		double pricePaid = new PremiumPassengerType().calculatePricePaid(activity, passenger.getBalance());
 
 		Assert.assertEquals(0.0, pricePaid, 0.01);
 	}

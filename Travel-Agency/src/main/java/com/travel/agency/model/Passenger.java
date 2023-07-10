@@ -3,7 +3,7 @@ package com.travel.agency.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.travel.agency.enums.TypeOfPassenger;
+import com.travel.agency.interfaces.PassengerType;
 
 /**
  * Represents a passenger in a travel package, which contains information such
@@ -14,7 +14,7 @@ public class Passenger {
 	private int passengerNumber;
 	private double balance;
 	private List<ActivityRegistration> activities;
-	private TypeOfPassenger passengerType;
+	private PassengerType passengerType;
 
 	/**
 	 * Constructs a new Passenger with the specified name, passenger number,
@@ -25,7 +25,7 @@ public class Passenger {
 	 * @param balance         the balance of the passenger
 	 * @param passengerType   the type of the passenger (Standard, Gold, or Premium)
 	 */
-	public Passenger(String name, int passengerNumber, double balance, TypeOfPassenger passengerType) {
+	public Passenger(String name, int passengerNumber, double balance, PassengerType passengerType) {
 		this.name = name;
 		this.passengerNumber = passengerNumber;
 		this.balance = balance;
@@ -70,11 +70,11 @@ public class Passenger {
 	}
 
 	/**
-	 * Returns the passenger type (Standard, Gold, or Premium).
+	 * Returns the passenger type.
 	 *
 	 * @return the passenger type
 	 */
-	public TypeOfPassenger getPassengerType() {
+	public PassengerType getPassengerType() {
 		return passengerType;
 	}
 
@@ -86,8 +86,8 @@ public class Passenger {
 	public void signUpForActivity(Activity activity) {
 		if (activity.getCapacity() > 0) {
 			// Deduct the activity cost from the passenger's balance
-			double pricePaid = calculatePricePaid(activity);
-			if (pricePaid <= balance) {
+			double pricePaid = passengerType.calculatePricePaid(activity, balance);
+			if (pricePaid > 0) {
 				ActivityRegistration registration = new ActivityRegistration(activity, pricePaid);
 				activities.add(registration);
 				activity.decreaseCapacity();
@@ -102,24 +102,6 @@ public class Passenger {
 
 	public void addActivity(ActivityRegistration activityRegistration) {
 		activities.add(activityRegistration);
-	}
-
-	/**
-	 * Calculates the price paid by the passenger for the given activity.
-	 *
-	 * @param activity the activity for which the price is calculated
-	 * @return the price paid by the passenger
-	 */
-	public double calculatePricePaid(Activity activity) {
-		double price = activity.getCost();
-		if (passengerType.equals(TypeOfPassenger.Gold)) {
-			price *= 0.9; // Apply 10% discount for gold passengers
-		} else if (passengerType.equals(TypeOfPassenger.Standard)) {
-			price = balance - price; // Deduct balance from the price for standard passengers
-		} else if (passengerType.equals(TypeOfPassenger.Premium)) {
-			price = 0; // Premium passengers have a price of 0
-		}
-		return price;
 	}
 
 	public void setName(String name) {
@@ -138,8 +120,7 @@ public class Passenger {
 		this.activities = activities;
 	}
 
-	public void setPassengerType(TypeOfPassenger passengerType) {
+	public void setPassengerType(PassengerType passengerType) {
 		this.passengerType = passengerType;
 	}
-
 }

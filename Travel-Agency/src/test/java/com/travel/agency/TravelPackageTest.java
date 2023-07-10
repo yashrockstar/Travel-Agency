@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.travel.agency.enums.TypeOfPassenger;
+import com.travel.agency.interfaces.impl.GoldPassengerType;
+import com.travel.agency.interfaces.impl.StandardPassengerType;
 import com.travel.agency.model.Activity;
 import com.travel.agency.model.ActivityRegistration;
 import com.travel.agency.model.Destination;
@@ -32,7 +34,7 @@ public class TravelPackageTest {
 
 	@Test
 	public void testAddPassenger() {
-		Passenger passenger = new Passenger("John", 1, 500.0, TypeOfPassenger.Standard);
+		Passenger passenger = new Passenger("John", 1, 500.0, new StandardPassengerType());
 
 		travelPackage.addPassenger(passenger);
 
@@ -64,8 +66,8 @@ public class TravelPackageTest {
 	@Test
 	public void testPrintPassengerList() {
 		// Set up passengers
-		Passenger passenger1 = new Passenger("John", 1, 500.0, TypeOfPassenger.Standard);
-		Passenger passenger2 = new Passenger("Alice", 2, 1000.0, TypeOfPassenger.Gold);
+		Passenger passenger1 = new Passenger("John", 1, 500.0, new StandardPassengerType());
+		Passenger passenger2 = new Passenger("Alice", 2, 1000.0, new GoldPassengerType());
 
 		travelPackage.addPassenger(passenger1);
 		travelPackage.addPassenger(passenger2);
@@ -79,7 +81,7 @@ public class TravelPackageTest {
 	@Test
 	public void testPrintPassengerDetails() {
 		// Set up passengers and activities
-		Passenger passenger1 = new Passenger("John", 1, 500.0, TypeOfPassenger.Standard);
+		Passenger passenger1 = new Passenger("John", 1, 500.0, new StandardPassengerType());
 		Activity activity1 = new Activity("Activity 1", "Description 1", 100.0, 5);
 		ActivityRegistration registration1 = new ActivityRegistration(activity1, 100.0);
 		passenger1.addActivity(registration1);
