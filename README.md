@@ -1,4 +1,14 @@
 # Low-Level Design (UML Class Diagram)
+
+In the Lower Level Diagram, we have identified the main classes and their relationships in the travel agency system. The classes include:
+
+1. TravelPackage        : Represents a travel package name , capacity, list destinations and list of passengers, and related methods.
+2. Destination          : Represents a destination and contains activities available at that destination.
+3. Activity             : Represents an activity available at a destination with cost and capacity information.
+4. Passenger            : Represents a passenger and contains passenger information, balance, and activity registrations.
+5. PassengerType        : Represents the type of a passenger (e.g., Standard, Gold, Premium). Basically it is an interface which is implemented by 3 class PremiumPassengerType, StandardPassengerType & GoldPassengerType
+6. ActivityRegistration : Represents the registration for an activity by a passenger.
+   
                           +------------------+
                           |   TravelPackage  |
                           +--------------------------------+
