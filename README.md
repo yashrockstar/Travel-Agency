@@ -9,7 +9,7 @@ In the Lower Level Diagram, we have identified the main classes and their relati
 5. **PassengerType**        : Represents the type of a passenger (e.g., Standard, Gold, Premium). Basically it is an interface which is implemented by 3 class PremiumPassengerType, StandardPassengerType & GoldPassengerType
 6. **ActivityRegistration** : Represents the registration for an activity by a passenger.
    
-                          +------------------+
+                                                   +------------------+
                           |   TravelPackage  |
                           +--------------------------------+
                           | - name: String                 |
@@ -32,40 +32,40 @@ In the Lower Level Diagram, we have identified the main classes and their relati
         |               |Destination|                              +---------> |Activity                |
         |               +------------------------------+           |           +------------------------+
         |               | - name: String               |           |           | - name: String         |
-        |               | - activities: List<Activity> |-----------+           | - description: String  |----------------------+ 
-        |               +------------------------------+                       | - cost: double         |					             
-        |                                                                      | - capacity: int        |                      |
-        |                                                                      +------------------------+                      |
-        |                                                                                /|\                                   |
-        |                                                                               / | \                                  |
-        |                                                                              /  |  \                                 |
-        |                                                                             /   |   \                                |
-        |          +-------------+                                             +------------------------+                      |
-        |          |  Passenger  |                                      +----> |  ActivityRegistration  |                      |
-        |          +-------------+ --------------------------+          |      +------------------------+                      |                      
-        |         | - name: String                           |          |      | - activity: Activity   |                      |
-        |         | - passengerNumber: int                   |          |      | - pricePaid: double    |                      |
-        +-------->| - balance: double                        |----------+      +------------------------+                      |
-                  | - activities: List<ActivityRegistration> |                                                                 |
-                  +------------------------------------------+                                                                 | 
-                    |   |   																								                                                   
-                    |   |   +--------------------------------------------------------------------------------------------------+
-                    |   |   |
-                 +---------------------------+
-                 |    PremiumPassengerType   |
-                 +----------+   +------------+
-                 | - calculatePricePaid()    |
-                 +---------------------------+
-                 |   |   |
-              +-------------------------+
-              |   StandardPassengerType |
-              +-----------+   +---------+
-              | - calculatePricePaid()  |
-              +-------------------------+
-              |   |   |
-              +-------------------------+
-              |   GoldPassengerType     |
-              +------------+   +--------+
+        |               | - activities: List<Activity> |-----------+           | - description: String  |
+        |               +------------------------------+                       | - cost: double         |					   
+        |                                                                      | - capacity: int        |                      
+        |                                                                      +------------------------+                      
+        |                                                                                /|\                                   
+        |                                                                               / | \                                  
+        |                                                                              /  |  \                                 
+        |                                                                             /   |   \                                
+        |          +-------------+                                             +------------------------+                      
+        |          |  Passenger  |                                      +----> |  ActivityRegistration  |                      
+        |          +-------------+ --------------------------+          |      +------------------------+ 
+        |         | - name: String                           |          |      | - activity: Activity   |                      
+        |         | - passengerNumber: int                   |          |      | - pricePaid: double    |                      
+        +-------->| - balance: double                        |----------+      +------------------------+                      
+                  | - activities: List<ActivityRegistration> |                                                                 
+                  +------------------------------------------+                                                                  
+							|																								   
+							+---------------------------------+
+							v                                 |
+                 +---------------------------+         |
+                 |    PremiumPassengerType   |         |
+                 +----------+   +------------+         |
+                 | - calculatePricePaid()    |         |
+                 +---------------------------+         |
+													                |
+              +-------------------------+              |
+              |   StandardPassengerType |              |
+              +-----------+   +---------+ <------------+
+              | - calculatePricePaid()  |              |
+              +-------------------------+              |
+                                                       |
+              +-------------------------+              |
+              |   GoldPassengerType     |              |
+              +------------+   +--------+ <------------+
               | - calculatePricePaid()  |
               +-------------------------+
 
